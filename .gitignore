@@ -1,4 +1,5 @@
 /node_modules
 /serveur/node_modules
 /postgres
+/serveur/package-lock.json
 package-lock.json
