@@ -1,0 +1,11 @@
+### créer un utilisateur
+POST http://localhost:3000/register
+Content-Type: application/json
+
+{
+    "nom":"admin",
+    "prenom":"admin",
+    "email": "admin@gmail.com",
+    "password": "pass2025!",
+    "status": "admin"
+}

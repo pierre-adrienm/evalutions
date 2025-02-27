@@ -1,6 +1,9 @@
 # Utilise une image Node.js officielle
 FROM node:20
 
+# Installer les dépendances système nécessaires pour bcrypt
+RUN apt-get update && apt-get install -y python3 g++ make
+
 # Définir le répertoire de travail dans le conteneur
 WORKDIR /app
 
@@ -12,6 +15,9 @@ RUN npm install
 
 # Copier le code source
 COPY serveur .
+
+# Assure-toi que dotenv est bien utilisé dans l'application
+RUN echo "require('dotenv').config();" >> index.js
 
 # Exposer le port du serveur
 EXPOSE 3000

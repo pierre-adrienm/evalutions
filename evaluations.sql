@@ -2,6 +2,7 @@ CREATE TABLE "User"(
     "id_user" SERIAL PRIMARY KEY,
     "prenom" varchar(50) NOT NULL,
     "nom" varchar(50) NOT NULL,
+    "email" varchar(100) NOT NULL UNIQUE,
     "password" varchar(255) NOT NULL,
     "status" varchar(20) NOT NULL CHECK("status" IN('user', 'admin'))
 );
