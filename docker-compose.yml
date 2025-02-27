@@ -1,0 +1,48 @@
+version: "3.8"
+
+services:
+  postgres:
+    image: postgres:latest
+    container_name: postgres_db
+    environment:
+      POSTGRES_DB: evaluations
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: "Ok_hand:"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./evaluations.sql:/docker-entrypoint-initdb.d/evaluations.sql
+    ports:
+      - "5432:5432"
+    restart: always
+
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    container_name: node_server
+    volumes:
+      - ./serveur:/app
+    ports:
+      - "3000:3000"
+    depends_on:
+      - postgres
+    environment:
+      DATABASE_URL: postgres://admin:Ok_hand:@postgres:5432/evaluations
+
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    container_name: angular_client
+    volumes:
+      - ./client:/app
+      - /app/node_modules # Pour éviter les problèmes de dépendances
+    ports:
+      - "4200:4200"
+    depends_on:
+      - backend
+    environment:
+      - CHOKIDAR_USEPOLLING=true # Pour le hot reload dans Docker
+
+volumes:
+  pgdata:
