@@ -1,0 +1,27 @@
+### Create Group
+POST http://localhost:3000/createGroup
+Content-Type: application/json
+
+{
+    "nomGroup":"Potager"
+}
+
+### Consult groups
+GET http://localhost:3000/groups
+
+### Afficher le nombre de groupe
+GET http://localhost:3000/nbGroup
+
+### Consult one groups
+GET http://localhost:3000/group/5
+
+### Update Group
+PUT http://localhost:3000/updateGroup/5
+Content-Type: application/json
+
+{
+    "nomGroup": "hiver"
+}
+
+### Delete Group
+DELETE http://localhost:3000/deleteGroup/5
