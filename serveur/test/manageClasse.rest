@@ -1,0 +1,22 @@
+### Ajout d'un utilisateur à un groupe
+POST http://localhost:3000/group/4/registerClasse
+Content-Type: application/json
+
+{
+    "email":"olivier.dubois@laposte.net"
+}
+
+### consultation la liste des utilisateur dans une Classe
+GET http://localhost:3000/group/3/users
+
+### recupérer le nombre d'utilisateur dans une Classe
+GET http://localhost:3000/group/1/nbUser
+
+### consultation la liste des Classe pour un utilisateur
+GET http://localhost:3000/user/5/classe
+
+### Récuperer le nombre de Classes qu'a un utilisateur
+GET http://localhost:3000/user/2/nbClasses
+
+### Supprimer un utilisateur d'un groupe
+DELETE http://localhost:3000/group/1/user/6

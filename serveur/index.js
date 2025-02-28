@@ -4,6 +4,7 @@ const manageUser = require("./manageUser");
 const identification = require("./identitification");
 const manageGroup = require("./manageGroup");
 const manageQuestion = require("./manageQuestion");
+const manageClasse = require("./manageClasse");
 require('dotenv').config();
 const app = express();
 app.get("/", (req, res) => res.send("Serveur en marche !"));
@@ -25,5 +26,7 @@ app.use("/", identification);
 app.use("/", manageGroup);
 
 app.use("/", manageQuestion);
+
+app.use("/", manageClasse);
 
 app.listen(3000, () => console.log("Serveur sur le port 3000"));
