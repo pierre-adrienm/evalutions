@@ -1,0 +1,22 @@
+### Ajout d'une question à un groupe
+POST http://localhost:3000/group/3/registerEvalGroup
+Content-Type: application/json
+
+{
+    "question":" Comment sentez vous l’équipe?"
+}
+
+### consultation la liste des question dans un group
+GET http://localhost:3000/group/1/questions
+
+### recupérer le nombre de question dans un group
+GET http://localhost:3000/group/4/nbQuestions
+
+### consultation la liste des groupes pour une question
+GET http://localhost:3000/question/1/group
+
+### Récuperer le nombre de question pour un group
+GET http://localhost:3000/question/1/nbGroup
+
+### Supprimer une question d'un groupe
+DELETE http://localhost:3000/group/3/question/1

@@ -16,11 +16,11 @@ GET http://localhost:3000/nbQuestion
 GET http://localhost:3000/question/4
 
 ### Update Question
-PUT http://localhost:3000/updateQuestion/4
+PUT http://localhost:3000/updateQuestion/3
 Content-Type: application/json
 
 {
-    "nomQuestion": "Arrivez-vous à suivre?"
+    "nomQuestion": "Comment sentez vous l’équipe?"
 }
 
 ### Delete Question
