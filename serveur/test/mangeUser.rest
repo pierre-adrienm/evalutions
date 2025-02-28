@@ -3,9 +3,29 @@ POST http://localhost:3000/register
 Content-Type: application/json
 
 {
-    "nom":"Dupont",
-    "prenom":"jean",
-    "email": "jean.dupont@gmail.com",
+    "nom":"Martin",
+    "prenom":"Ludovic",
+    "email": "ludovic.martin@gmail.com",
     "password": "pass2025!",
     "status": "user"
 }
+
+### consulter la liste des utilisateur
+GET http://localhost:3000/users
+
+### consulter un profil utilisateur
+GET http://localhost:3000/user/5
+
+### obtenir le nombre total d'utilisateur
+GET http://localhost:3000/nbUser
+
+### modifier le profil d'un utilisateur
+PUT http://localhost:3000/profile/5
+Content-Type: application/json
+
+{
+    "email": "natalie.bonjour@yahoo.fr"
+}
+
+### supprimer un utilisateur
+DELETE http://localhost:3000/deleteUser/7
