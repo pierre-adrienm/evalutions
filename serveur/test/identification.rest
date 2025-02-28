@@ -1,0 +1,35 @@
+### Text connexion
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+    "email":"jean.dupont@gmail.com",
+    "password":"pass2025!"
+}
+
+### admin
+GET http://localhost:3000/admin/1
+Content-Type: application/json
+
+{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c2VyIjoxLCJzdGF0dXMiOiJhZG1pbiIsImlhdCI6MTc0MDczMzQ3NCwiZXhwIjoxNzQwNzM3MDc0fQ.SFKbKfIeTY1yDv_cW2TIndE6GtOcXA38i-MjsWB7p68",
+    "user": {
+        "id_user":1,
+        "status":"admin"
+    }
+}
+
+### user
+GET http://localhost:3000/user/2
+Content-Type: application/json
+
+{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c2VyIjoyLCJzdGF0dXMiOiJ1c2VyIiwiaWF0IjoxNzQwNzMzNjkwLCJleHAiOjE3NDA3MzcyOTB9.hVL42ytoZwkp_I19St4hEKhlb0nSUZYP8KYBqSX8zPo",
+    "user": {
+        "id_user":2,
+        "status":"user"
+    }
+}
+
+### Logout
+GET http://localhost:3000/logout
