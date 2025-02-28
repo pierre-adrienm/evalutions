@@ -1,0 +1,27 @@
+### Create Question
+POST http://localhost:3000/createQuestion
+Content-Type: application/json
+
+{
+    "nomQuestion":" Êtes-vous vous perdu ?"
+}
+
+### Consult Questions
+GET http://localhost:3000/questions
+
+### Afficher le nombre de Questione
+GET http://localhost:3000/nbQuestion
+
+### Consult one Questions
+GET http://localhost:3000/question/4
+
+### Update Question
+PUT http://localhost:3000/updateQuestion/4
+Content-Type: application/json
+
+{
+    "nomQuestion": "Arrivez-vous à suivre?"
+}
+
+### Delete Question
+DELETE http://localhost:3000/deleteQuestion/4
