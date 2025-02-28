@@ -23,7 +23,7 @@ manageEvalGroup.post("/group/:id_group/registerEvalGroup", async (req, res) =>{
 
         const id_question = questionResult.rows[0].id_question;
 
-        // Vérifier si l'utilisateur est déjà inscrit dans le groupe
+        // Vérifier si la question est déjà inscrit dans le groupe
         const existingEvalGroup = await pool.query(
             `SELECT * FROM "Evaluation_group" WHERE id_question = $1 AND id_group = $2`,
             [id_question, id_group]

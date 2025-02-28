@@ -1,0 +1,30 @@
+### Ajout d'une question à un utilisateur
+POST http://localhost:3000/user/6/registerEvalUser
+Content-Type: application/json
+
+{
+    "question":"Comment évaluez vous les relations avec l’équipe?"
+}
+
+### consultation la liste des question dans un utilisateur
+GET http://localhost:3000/user/2/questions
+
+### recupérer le nombre de question dans un utilisateur
+GET http://localhost:3000/user/5/nbQuestions
+
+### consultation la liste des utilisateur pour une question
+GET http://localhost:3000/question/3/users
+
+### ajouter une note à une question par un utilisateur
+PUT http://localhost:3000/question/2/user/6
+Content-Type: application/json
+
+{
+    "note":8
+}
+
+### Récuperer le nombre de groupe pour une question
+GET http://localhost:3000/question/3/nbUser
+
+### Supprimer une question d'un utilisateur
+DELETE http://localhost:3000/user/3/question/1
