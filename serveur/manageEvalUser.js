@@ -64,9 +64,9 @@ manageEvalUser.get('/user/:id_user/questions',async (req,res) =>{
         // Récupérer les questions d'un utilisateur
         const questionsResult = await pool.query(
             `SELECT q.id_question, q.question
-             FROM "Question" q
-             JOIN "Evaluation_user" eu ON q.id_question = eg.id_question
-             WHERE eu.id_user = $1 ORDER BY q.question`,
+            FROM "Question" q
+            JOIN "Evaluation_user" eu ON q.id_question = eu.id_question
+            WHERE eu.id_user = $1 ORDER BY q.question`,
             [id_user]
         );
 

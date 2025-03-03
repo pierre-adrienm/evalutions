@@ -1,1 +1,9 @@
-<p>user works!</p>
+<h2>Liste des questions</h2>
+<ul *ngIf="questions.length > 0; else noQuestions">
+    <li *ngFor="let question of questions">
+        {{ question.id_question }} - {{ question.question }}
+    </li>
+</ul>
+<ng-template #noQuestions>
+    <p>Aucune question assignée à cet utilisateur.</p>
+</ng-template>
