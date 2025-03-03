@@ -1,0 +1,18 @@
+.navbar {
+    background-color: #1e1c59;
+    padding: 10px;
+    height: 100px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.navbar button {
+    background-color: white; /* Rouge pour le bouton de déconnexion */
+    color: #d91e41;
+    border: none;
+    border-radius: 10px;
+    padding: 8px 16px;
+    font-size: 16px;
+    cursor: pointer;
+}
