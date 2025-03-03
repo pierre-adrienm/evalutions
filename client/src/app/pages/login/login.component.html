@@ -1,1 +1,33 @@
-<p>login works!</p>
+<body>
+    <div class="container">
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="form">
+        <div>
+          <input id="email" formControlName="email" placeholder="adresse mail" />
+          <ng-template
+            [ngIf]="email?.invalid && (email?.touched || email?.dirty)"
+            [ngIfThen]="invalidEmail"
+          ></ng-template>
+          <ng-template #invalidEmail>
+            <small *ngIf="email?.errors?.['required']">L'email est requis</small>
+            <small *ngIf="email?.errors?.['minlength']">L'email doit faire au minimum 3 caractères</small>
+            <small *ngIf="email?.errors?.['email']">L'email n'est pas valide</small>
+          </ng-template>
+        </div>
+  
+        <div>
+          <input id="password" type="password" formControlName="password" placeholder="Password" />
+          <ng-template
+            [ngIf]="password?.invalid && (password?.touched || password?.dirty)"
+            [ngIfThen]="invalidPassword"
+          ></ng-template>
+          <ng-template #invalidPassword>
+            <small *ngIf="password?.errors?.['required']">Le mot de passe est requis</small>
+            <small *ngIf="password?.errors?.['minlength']">Le mot de passe doit faire au minimum 6 caractères</small>
+          </ng-template>
+        </div>
+  
+        <button type="submit">Connect</button>
+      </form>
+    </div>
+  </body>
+  
