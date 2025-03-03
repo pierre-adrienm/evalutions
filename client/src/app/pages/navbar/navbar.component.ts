@@ -1,21 +1,22 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, Inject } from '@angular/core';
+import { Router, RouterModule } from '@angular/router';
 import { LoginService } from '../../services/login.service';
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,RouterModule],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent {
 
   userId: number | null = null;
+  showLogoutModal: boolean = false;
 
   constructor(
-    private router:Router, 
+    private router: Router, 
     private loginService: LoginService
   ){}
 
@@ -41,9 +42,19 @@ export class NavbarComponent {
     );
   }
 
-  logout(): void {
+  openLogoutModal(): void {
+    console.log('Modal ouvert');
+    this.showLogoutModal = true;
+  }
+
+  closeLogoutModal(): void {
+    this.showLogoutModal = false;
+  }
+
+  confirmLogout(): void {
     this.loginService.logout().subscribe(() => {
       this.router.navigateByUrl('/');
+      this.showLogoutModal = false;
     });
   }
 }

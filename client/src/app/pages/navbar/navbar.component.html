@@ -1,3 +1,30 @@
 <nav *ngIf="isNotLoginPage()" class="navbar">
-    <button *ngIf="isNotLoginPage()" (click)="logout()">Déconnexion</button>
+        <!-- SVG de l'icône Power -->
+    <svg 
+        xmlns="http://www.w3.org/2000/svg" 
+        class="icon" 
+        viewBox="0 0 24 24" 
+        fill="none" 
+        stroke="currentColor" 
+        stroke-width="2" 
+        stroke-linecap="round" 
+        stroke-linejoin="round"
+        (click)="openLogoutModal()"
+    >
+        <circle cx="12" cy="12" r="10"></circle>
+        <line x1="12" y1="9" x2="12" y2="15"></line>
+        <line x1="12" y1="15" x2="12" y2="21"></line>
+    </svg>
+    <!-- <ng-icon [icon]="faPowerOff" (click)="openLogoutModal()"/> -->
+    <!-- Modal de déconnexion -->
+    <div *ngIf="showLogoutModal" class="modal-overlay">
+      <div class="modal">
+        <p>Êtes-vous sûr de vouloir vous déconnecter ?</p>
+        <div class="btn">
+            <button class="btn-no" (click)="closeLogoutModal()">Non</button>
+            <button class="btn-yes" (click)="confirmLogout()">Oui</button>
+        </div>
+
+      </div>
+    </div>
 </nav>
