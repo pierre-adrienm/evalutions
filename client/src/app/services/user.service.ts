@@ -14,4 +14,9 @@ export class UserService {
   getUserQuestions(userId: number): Observable<any> {
     return this.http.get(`${this.apiUrl}/user/${userId}/questions`);
   }
+
+  saveNote(questionId: number, userId: number, note: number): Observable<any> {
+    const body = { questionId, userId, note };
+    return this.http.put(`${this.apiUrl}/question/${questionId}/user/${userId}`, body);
+  }  
 }

@@ -1,9 +1,27 @@
-<h2>Liste des questions</h2>
-<ul *ngIf="questions.length > 0; else noQuestions">
-    <li *ngFor="let question of questions">
-        {{ question.id_question }} - {{ question.question }}
-    </li>
-</ul>
+<h2>Bienvenue User</h2>
+
+<div class="question-container">
+    <ul *ngIf="questions.length > 0; else noQuestions">
+        <li *ngFor="let question of questions" class="question-item">
+            <span>{{ question.question }}</span>
+            <button (click)="toggleDropdown(question.id_question)">▼</button>
+            
+            <div *ngIf="activeDropdown === question.id_question" class="dropdown">
+                <label *ngFor="let note of notes">
+                <input 
+                    type="radio" 
+                    name="note-{{question.id_question}}" 
+                    [value]="note" 
+                    [(ngModel)]="question.selectedNote"
+                    (change)="setNote(question.id_question, question.selectedNote)"
+                />
+                {{ note }}
+                </label>
+            </div>
+        </li>
+    </ul>
+</div>
+
 <ng-template #noQuestions>
     <p>Aucune question assignée à cet utilisateur.</p>
 </ng-template>
