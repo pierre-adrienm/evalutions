@@ -15,6 +15,9 @@ GET http://localhost:3000/user/5/nbQuestions
 ### consultation la liste des utilisateur pour une question
 GET http://localhost:3000/question/3/users
 
+### consulter la note d'une question
+GET http://localhost:3000/question/2/user/6
+
 ### ajouter une note à une question par un utilisateur
 PUT http://localhost:3000/question/2/user/6
 Content-Type: application/json

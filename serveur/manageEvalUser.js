@@ -139,6 +139,27 @@ manageEvalUser.get('/question/:id_question/users', async (req, res) => {
     }
 });
 
+// Récupérer la note des question
+manageEvalUser.get('/question/:id_question/user/:id_user', async(req,res) =>{
+    const {id_question,id_user} =req.params;
+
+    try{
+        const noteQuestion = await pool.query(
+            `SELECT note FROM "Evaluation_user" WHERE id_question=$1 AND id_user=$2`,
+            [id_question,id_user]
+        );
+
+        if(noteQuestion.rows.length==0){
+            return res.status(404).json({massage:`Question ${id_question} for user ${id_user} doesn't exist`});
+        }
+
+        res.status(200).json(noteQuestion.rows[0]);
+    }catch(err){
+        console.log(err);
+        res.status(500).json({error:"Can't read the note question"});
+    }
+});
+
 // Mettre un note à une question pour un utilisateur
 manageEvalUser.put('/question/:id_question/user/:id_user', async (req,res) => {
     const {id_question,id_user} = req.params;
