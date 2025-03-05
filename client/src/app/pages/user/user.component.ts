@@ -14,6 +14,7 @@ export class UserComponent {
 
   questions: any[] = [];
   userId: number = 1;
+  userName: string = 'Utilisateur'; 
   activeDropdown: number | null = null;
   notes: number[] = Array.from({ length: 17 }, (_, i) => i);
   notesMap: { [key: number]: number } = {};
@@ -25,6 +26,19 @@ export class UserComponent {
     if (storedUserId) {
       this.userId = parseInt(storedUserId, 10);
     }
+
+    this.userService.getUserName(this.userId).subscribe(
+      (response) => {
+        if (Array.isArray(response) && response.length > 0) {
+          this.userName = `${response[0].prenom} ${response[0].nom}`;
+        } else {
+          console.error('Réponse inattendue:', response);
+        }
+      },
+      (error) => {
+        console.error('Erreur lors de la récupération du nom:', error);
+      }
+    );
   
     this.userService.getUserQuestions(this.userId).subscribe(
       (response) => {
@@ -40,7 +54,6 @@ export class UserComponent {
     );
   }
   
-
   toggleDropdown(questionId: number) {
     this.activeDropdown = this.activeDropdown === questionId ? null : questionId;
   }

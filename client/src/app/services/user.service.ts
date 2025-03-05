@@ -11,6 +11,10 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
+  getUserName(userId: number): Observable<any>{
+    return this.http.get(`${this.apiUrl}/user/${userId}`);
+  }
+
   getUserQuestions(userId: number): Observable<any> {
     return this.http.get(`${this.apiUrl}/user/${userId}/questions`);
   }
